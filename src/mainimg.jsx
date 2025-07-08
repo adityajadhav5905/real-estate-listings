@@ -15,7 +15,7 @@ const Mainimg = () => {
         </a>
       </div>
       <div className="main-struct">
-        <img src="src\assets\bg3.jpg" alt="main-image" className="bg-img h-2/5 opacity-50 z-0" />
+        <img src="\assets\bg3.jpg" alt="main-image" className="bg-img h-2/5 opacity-50 z-0" />
       </div>
     </div>
   )
