@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <div className="nav-bar justify-center items-center flex z-50  backdrop-blur-xl fixed w-screen bg-transparent">
       <div className='logo h-14 w-1/6 flex items-center '>
-        <img src="src/assets/logo.png" alt="Logo" className='h-20 w-auto mx-8 my-3' />
+        <img src="/assets/logo.png" alt="Logo" className='h-20 w-auto mx-8 my-3' />
       </div>
 
       <div className="navbar flex justify-center items-center text-white bg-gray-700 w-4/6 h-14 backdrop-blur-sm rounded-4xl m-4 ">
@@ -26,7 +26,7 @@ const NavBar = () => {
       </div>
 
       <div className="profile h-14 w-1/6 flex items-center justify-end">
-        <img src="src/assets/profile.png" alt="Profile" className='h-15 w-auto mx-8 my-3' />
+        <img src="/assets/profile.png" alt="Profile" className='h-15 w-auto mx-8 my-3' />
       </div>
     </div>
   );
