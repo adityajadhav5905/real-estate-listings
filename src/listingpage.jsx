@@ -23,13 +23,13 @@ const ListingPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Ensure an image is selected
+   
     if (!formData.image) {
       alert("Please select an image");
       return;
     }
     
-    // Convert the file to a Base64 data URL
+   
     const reader = new FileReader();
     reader.readAsDataURL(formData.image);
 
@@ -40,19 +40,19 @@ const ListingPage = () => {
         price: formData.price,
         location: formData.location,
         toemail: formData.email,
-        // use the Base64 string from the FileReader instead of a blob URL
+   
         image: reader.result,
         name: formData.name,
         phone: formData.phone,
       };
 
-      // Retrieve existing listings from localStorage or use an empty array
+
       const storedListings = JSON.parse(localStorage.getItem('listings')) || [];
       storedListings.push(newListing);
       localStorage.setItem('listings', JSON.stringify(storedListings));
 
       alert("Listing submitted and saved!");
-      window.location.href = '/'; // optional: redirect to homepage
+      window.location.href = '/';
     };
 
     reader.onerror = (error) => {

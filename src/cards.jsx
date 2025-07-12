@@ -13,7 +13,7 @@ const Cards = ({ onEnquireClick }) => {
       setListings(combined);
     } catch (error) {
       console.error("Error reading listings:", error);
-      setListings(defaultListings); // fallback
+      setListings(defaultListings); 
     }
   }, []);
 
@@ -31,7 +31,7 @@ const Cards = ({ onEnquireClick }) => {
             />
           ))}
 
-          {/* ✅ Correctly placed delete button */}
+      
           <div className="col-span-full flex justify-center mt-6">
             <Deleteall />
           </div>

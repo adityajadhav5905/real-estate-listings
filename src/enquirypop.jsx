@@ -9,7 +9,7 @@ const Enquirypop = ({ onClose, toemail }) => {
     const sendEmail = (e) => {
         e.preventDefault();
 
-        const formData = new FormData(formRef.current); // ✅ Fix: create FormData
+        const formData = new FormData(formRef.current);
         console.log("Sending to:", toemail);
 
 

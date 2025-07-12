@@ -5,7 +5,7 @@ import Cards from './cards.jsx';
 import Mainimg from './mainimg.jsx';
 import Footer from './footer.jsx';
 import Enquirypop from './enquirypop.jsx';
-import ListingPage from './listingpage.jsx'; // ✅ import
+import ListingPage from './listingpage.jsx'; 
 
 function App() {
   const [showPopup, setShowPopup] = useState(false);
@@ -36,7 +36,7 @@ function App() {
             </>
           }
         />
-        <Route path="/listing" element={<ListingPage />} /> {/* ✅ New route */}
+        <Route path="/listing" element={<ListingPage />} /> 
       </Routes>
     </Router>
   );

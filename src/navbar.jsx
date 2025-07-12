@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // ✅ import
+import { Link } from 'react-router-dom'; 
 
 const NavBar = () => {
   return (
@@ -20,7 +20,7 @@ const NavBar = () => {
             Contact Us
           </li>
           <li className="bg-gray-700 transition ease-in-out scale-110 duration-300 hover:text-amber-200 m-1 px-3.5 py-1 rounded-2xl hover:cursor-pointer">
-            <Link to="/listing">List Properties</Link> {/* ✅ Link added */}
+            <Link to="/listing">List Properties</Link>
           </li>
         </ul>
       </div>
