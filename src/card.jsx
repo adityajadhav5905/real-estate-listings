@@ -19,11 +19,13 @@ const Card = ({ title, description, image, price, toemail, onEnquireClick }) => 
         >
           {title}
         </h5>
-        <img
-          src={image}
-          alt="PropLogo"
-          className="flex items-center justify-center p-2 m-2 border-2 border-gray-700 transition ease-in-out delay-150 duration-300 hover:border-amber-400 rounded-b-md min-h-28"
-        />
+        {image ? (
+          <img
+            src={image}
+            alt="PropLogo"
+            className="flex items-center justify-center p-2 m-2 border-2 border-gray-700 transition ease-in-out delay-150 duration-300 hover:border-amber-400 rounded-b-md min-h-28"
+          />
+        ) : null}
 
         <p
           className="font-normal text-gray-700 dark:text-gray-400 transition-all duration-300 

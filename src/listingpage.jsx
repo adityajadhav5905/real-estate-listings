@@ -20,44 +20,46 @@ const ListingPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
-   
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (!formData.image) {
       alert("Please select an image");
       return;
     }
-    
-   
     const reader = new FileReader();
     reader.readAsDataURL(formData.image);
-
-    reader.onloadend = () => {
+    reader.onloadend = async () => {
       const newListing = {
         title: formData.title,
         description: formData.description,
         price: formData.price,
         location: formData.location,
         toemail: formData.email,
-   
         image: reader.result,
         name: formData.name,
         phone: formData.phone,
       };
-
-
-      const storedListings = JSON.parse(localStorage.getItem('listings')) || [];
-      storedListings.push(newListing);
-      localStorage.setItem('listings', JSON.stringify(storedListings));
-
-      alert("Listing submitted and saved!");
-      window.location.href = '/';
+      try {
+        const res = await fetch('http://localhost:5000/api/listings', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(newListing),
+        });
+        if (res.ok) {
+          alert('Listing submitted and saved!');
+          window.location.href = '/';
+        } else {
+          alert('Failed to submit listing.');
+        }
+      } catch (error) {
+        console.error('Error submitting listing:', error);
+        alert('Failed to submit listing. Please try again.');
+      }
     };
-
     reader.onerror = (error) => {
-      console.error("Error reading file:", error);
-      alert("Image upload failed. Please try again.");
+      console.error('Error reading file:', error);
+      alert('Image upload failed. Please try again.');
     };
   };
 
