@@ -10,7 +10,8 @@ This is a responsive real estate listings application built using React and Tail
 - Store added listings in localStorage
 - Clear all user-added listings with a single button
 - Responsive layout built with Tailwind CSS
-- Deployed on Vercel
+- Used MongoDb as database.
+
 
 ## Technologies Used
 
