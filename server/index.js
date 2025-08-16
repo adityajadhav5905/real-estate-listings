@@ -48,9 +48,12 @@ const Listing = mongoose.model('Listing', listingSchema);
 app.post('/api/auth/register', async (req, res) => {
   const { name, email, password, role } = req.body;
   try {
+<<<<<<< Updated upstream
     if (!name || !email || !password || !role) {
       return res.status(400).json({ error: 'All fields are required' });
     }
+=======
+>>>>>>> Stashed changes
     const existing = await User.findOne({ email });
     if (existing) return res.status(400).json({ error: 'Email already registered' });
     const hashed = await bcrypt.hash(password, 10);
@@ -58,11 +61,15 @@ app.post('/api/auth/register', async (req, res) => {
     await user.save();
     res.status(201).json({ message: 'Registered successfully' });
   } catch (err) {
+<<<<<<< Updated upstream
     console.error('Registration error:', err);
     if (err.code === 11000) {
       return res.status(400).json({ error: 'Email already registered' });
     }
     res.status(500).json({ error: 'Registration failed: ' + err.message });
+=======
+    res.status(500).json({ error: 'Registration failed' });
+>>>>>>> Stashed changes
   }
 });
 
@@ -104,12 +111,19 @@ app.get('/api/listings', async (req, res) => {
   }
 });
 
+<<<<<<< Updated upstream
 
 // Add a new listing (seller only)
 app.post('/api/listings', auth, async (req, res) => {
   try {
     if (req.user.role !== 'seller') return res.status(403).json({ error: 'Only sellers can add listings' });
     const listing = new Listing({ ...req.body, seller: req.user.userId });
+=======
+// Add a new listing
+app.post('/api/listings', async (req, res) => {
+  try {
+    const listing = new Listing(req.body);
+>>>>>>> Stashed changes
     await listing.save();
     res.status(201).json(listing);
   } catch (error) {
@@ -117,6 +131,7 @@ app.post('/api/listings', auth, async (req, res) => {
   }
 });
 
+<<<<<<< Updated upstream
 
 // Seller dashboard: get listings for logged-in seller
 app.get('/api/seller/listings', auth, async (req, res) => {
@@ -157,6 +172,8 @@ app.put('/api/seller/listings/:id', auth, async (req, res) => {
   }
 });
 
+=======
+>>>>>>> Stashed changes
 // Delete all user listings
 app.delete('/api/listings', async (req, res) => {
   try {

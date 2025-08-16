@@ -38,6 +38,12 @@ const Cards = ({ onEnquireClick }) => {
               onEnquireClick={onEnquireClick}
             />
           ))}
+<<<<<<< Updated upstream
+=======
+          <div className="col-span-full flex justify-center mt-6">
+            <Deleteall onListingsCleared={() => setListings([])} />
+          </div>
+>>>>>>> Stashed changes
         </>
       )}
     </div>
